@@ -114,6 +114,11 @@ export class SignUpPage implements OnInit {
     }
   }
 
+
+login(){
+  
+}
+
   setListenerForTrim() {
     document
       .getElementById('ionInput')

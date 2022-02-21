@@ -7,7 +7,7 @@
       </ion-col>
     </ion-row>
   <div class="ion-text-center mt-24">
-    <ion-slides pager="false" [options]="slideOpts" class="slides" (ionSlideDidChange)="slideChanged($event)" #slides>
+    <ion-slides pager="false" class="slides" (ionSlideDidChange)="slideChanged($event)" #slides>
       <ion-slide>
         <div class="flex flex-col">
           <ion-text class="lbl-white-30">Get advice from registered nurse</ion-text>
@@ -24,7 +24,6 @@
     <ion-row class="ion-justify-content-center">
       <div [ngClass]="currentIndex === 0 ? 'bullet-sel':'bullets'"></div>
       <div [ngClass]="currentIndex === 1 ? 'bullet-sel':'bullets'" class="ml-8"></div>
-      <!-- <div [ngClass]="currentIndex === 2 ? 'bullet-sel':'bullets'" class="ml-8"></div> -->
     </ion-row>
     <ion-button class="btn-1 mt-24"  mode="ios" routerLink="/login">
       Get Statred
