@@ -1,0 +1,22 @@
+<div>
+  <ng-container *ngIf="!isServerSide">
+    <ng-container *ngFor="let validation of validationMessages;let i=index;">
+     
+        <div class="error-message" 
+        [style.marginLeft.px]="marginLeft" [style.marginTop.px]="marginTop" 
+        [style.marginBottom.px]="marginBottom"
+        *ngIf="ValidationForm.get(type).hasError(validation.type) &&
+         (ValidationForm.get(type).dirty || ValidationForm.get(type).touched || 
+        (isFormSubmit &&  ValidationForm.get(type).invalid))">
+
+          {{ validation.message }}
+        </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="isServerSide">
+    <div class="error-message" [style.marginLeft.px]="marginLeft" [style.marginBottom.px]="marginBottom" [style.marginTop.px]="marginTop">
+      {{ message }}
+    </div>
+  </ng-container>
+</div>

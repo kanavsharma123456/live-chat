@@ -1,0 +1,52 @@
+@import "../../../assets/styles/ionic.mixin.scss";
+@import "../../../assets/styles/custom-label.scss";
+
+ion-item {
+  @include ion-item-border;
+  --background: white;
+}
+
+ion-input {
+  @extend .lbl-med-16;
+}
+
+.primary-div {
+  background: var(--ion-color-primary);
+  height: 25%;
+}
+
+.top-divv {
+  background: white;
+  height: 40px;
+  border-radius: 36px 36px 0px 0px;
+  margin-top: -30px;
+  padding-top: 16px;
+  z-index: 99;
+}
+
+.image-div {
+  width: 16vh;
+}
+
+.content-div {
+  // width: 100%;
+  // height: 100%;
+  // background: white;
+  // border-radius: 42px 42px 0px 0px;
+}
+.top-div {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.span-div {
+  text-decoration: underline;
+}
+
+// .bg-image {
+//     --background: url('../../../assets/img/bt_bg.png') no-repeat 52% center/cover;
+//   }
+.bottom-bg {
+  --background: url("../../../assets/img/bt_bg1.png") 44% 130% no-repeat;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "tele_health_nurse",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

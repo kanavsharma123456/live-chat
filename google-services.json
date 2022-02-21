@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "828071484416",
+    "project_id": "nursemeetz-2d779",
+    "storage_bucket": "nursemeetz-2d779.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828071484416:android:7c7e708432385546e24ce5",
+        "android_client_info": {
+          "package_name": "com.app.nursemeetz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828071484416-1lfjm9klkh6d6qp4avhpnathu93vohmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9Ta4SEzAc--dVc7CTTVOyDAQ9X9-zRP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828071484416-1lfjm9klkh6d6qp4avhpnathu93vohmu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "828071484416-886qmbq9mbabu1uaichc8jul7r8afrli.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nursemeetz.app",
+                "app_store_id": "1592708567"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

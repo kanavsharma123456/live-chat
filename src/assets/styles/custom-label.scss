@@ -1,0 +1,569 @@
+// text css
+.lbl-9 {
+    font-size: 9px !important;
+    color: #000000 !important;
+}
+.lbl-mp-9 {
+    font-size: 9px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Regular" !important;
+}
+.lbl-med-9 {
+    font-size: 9px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-bold-9 {
+    font-size: 9px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-wht-9 {
+    font-size: 9px !important;
+    color: #ffffff !important;
+}
+.lbl-op05-9 {
+    font-size: 9px !important;
+    color: #000000 !important;
+    opacity: 0.5;
+}
+.lbl-mp-op05-9 {
+    font-size: 9px !important;
+    color: #000000 !important;
+    opacity: 0.5;
+    font-family: "Gilroy-Regular" !important;
+}
+.lbl-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-primary) !important;
+}
+.lbl-med-10 {
+    font-size: 10px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-bold-white-10 {
+    font-size: 10px !important;
+    color: #ffffff !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-med-warn-op75-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-warning) !important;
+    font-family: "Gilroy-Medium" !important;
+    opacity: 0.75;
+}
+.lbl-sb-warn-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-warning) !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-med-warn-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-warning) !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-med-op75-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-warning) !important;
+    font-family: "Gilroy-Medium" !important;
+    opacity: 0.75;
+}
+.lbl-primary-10 {
+    font-size: 10px !important;
+    // color: #b57709 !important;
+    color: var(--ion-color-primary) !important;
+}
+.lbl-mp-primary-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-primary) !important;
+    font-family: 'Gilroy-Regular' !important;
+}
+.lbl-op05-10 {
+    font-size: 10px !important;
+    color: #000000 !important;
+    opacity: 0.5;
+}
+.lbl-med-op05-10 {
+    font-size: 10px !important;
+    color: #000000 !important;
+    opacity: 0.5 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-med-op75-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-dark) !important;
+    opacity: 0.75 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-sb-op75-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-dark) !important;
+    opacity: 0.75 !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-med-white-10 {
+    font-size: 10px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-sb-10 {
+    font-size: 10px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-sb-white-10 {
+    font-size: 10px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-sb-sec-10 {
+    font-size: 10px !important;
+    color: var(--ion-color-secondary) !important;
+    font-family: 'Gilroy-SemiBold' !important;
+}
+.lbl-11 {
+    font-size: 11px !important;
+    color: #000000 !important;
+}
+.lbl-med-11 {
+    font-size: 11px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-op05-11 {
+    font-size: 11px !important;
+    color: #000000 !important;
+    opacity: 0.5;
+}
+.lbl-primary-11 {
+    font-size: 11px !important;
+    color: #bd8014 !important;
+}
+.lbl-mp-primary-11 {
+    font-size: 11px !important;
+    color: #bd8014 !important;
+    font-family: 'Gilroy-Regular' !important;
+}
+
+.lbl-12 {
+    font-size: 12px !important;
+    color: #000000 !important;
+}
+.lbl-mp-12 {
+    font-size: 12px !important;
+    color: #000000 !important;
+    font-family: 'Gilroy-Regular' !important;
+}
+.lbl-mp-12 {
+    font-size: 12px !important;
+    color: #000000 !important;
+}
+.lbl-med-12 {
+    font-size: 12px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-op05-12 {
+    font-size: 12px !important;
+    color: #000000 !important;
+    opacity: 0.5 !important;
+}
+.lbl-sb-op75-12 {
+    font-size: 12px !important;
+    color: var(--ion-color-dark) !important;
+    opacity: 0.75 !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-med-op05-12{
+    font-size: 12px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Medium" !important;
+    opacity: 0.5 !important;
+}
+.lbl-bold-12 {
+    font-size: 12px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-mp-bold-12 {
+    font-size: 12px !important;
+    color: #000000 !important;
+    font-family: 'Gilroy-Bold' !important;
+}
+.lbl-sb-12 {
+    font-size: 12px !important;
+    color: #1B323C !important;
+    font-family: 'Gilroy-SemiBold' !important;
+}
+.lbl-sb-sec-12 {
+    font-size: 12px !important;
+    color: var(--ion-color-secondary) !important;
+    font-family: 'Gilroy-SemiBold' !important;
+}
+.lbl-med-op75-12 {
+    font-size: 12px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Medium" !important;
+    opacity: 0.75;
+}
+.lbl-bold-white-12 {
+    font-size: 12px !important;
+    color: #ffffff !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-13 {
+    font-size: 13px !important;
+    color: #000000 !important;
+}
+.lbl-mp-13 {
+    font-size: 13px !important;
+    color: #000000 !important;
+    font-family: 'Gilroy-Regular' !important;
+}
+.lbl-med-13 {
+    font-size: 13px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-light-13 {
+    font-family: "Gilroy-Light" !important;
+    font-size: 13px !important;
+    color: #000000 !important;
+}
+.lbl-op05-13 {
+    font-size: 13px !important;
+    color: #000000 !important;
+    opacity: 0.5 !important;
+}
+.lbl-14 {
+    font-size: 14px !important;
+    color: var(--ion-color-primary) !important;
+}
+.lbl-op05-14 {
+    font-size: 14px !important;
+    color: #000000 !important;
+    opacity: 0.5;
+}
+.lbl-med-op75-14 {
+    font-size: 14px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Medium" !important;
+    opacity: 0.75;
+}
+.lbl-bold-14 {
+    font-size: 14px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-bold-white-14 {
+    font-size: 14px !important;
+    color: #ffffff !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-sb-op75-14 {
+    font-size: 14px !important;
+    color: var(--ion-color-dark) !important;
+    opacity: 0.75 !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-sb-14 {
+    font-size: 14px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-med-14 {
+    font-size: 14px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-med-white-14 {
+    font-size: 14px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-sb-white-14 {
+    font-size: 14px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-bold-op75-white-14 {
+    font-size: 14px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-Bold" !important;
+    opacity: 0.75;
+}
+.lbl-primary-14 {
+    font-size: 14px !important;
+    color: #bd8014 !important;
+}
+.lbl-primary-bold-14 {
+    font-size: 14px !important;
+    color: #bd8014 !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-sec-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-secondary) !important;
+}
+.lbl-mp-sec-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-secondary) !important;
+    font-family: "Gilroy-Regular" !important;
+}
+
+.lbl-danger-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-danger) !important;
+}
+.lbl-bold-danger-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-danger) !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-mp-danger-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-danger) !important;
+    font-family: "Gilroy-Regular" !important;
+}
+.lbl-ter-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-tertiary) !important;
+}
+.lbl-mp-ter-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-tertiary) !important;
+    font-family: "Gilroy-Regular" !important;
+}
+.lbl-medium-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-medium) !important;
+}
+.lbl-bold-medium-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-medium) !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-mp-medium-14 {
+    font-size: 14px !important;
+    color:var(--ion-color-medium) !important;
+    font-family: "Gilroy-Regular" !important;
+}
+
+.lbl-op05-14 {
+    font-size: 14px !important;
+    color: #000000 !important;
+    opacity: 0.5 !important;
+}
+.lbl-bold-op05-14{
+    font-size: 14px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Bold" !important;
+    opacity: 0.5 !important;
+}
+.lbl-15 {
+    font-size: 15px !important;
+    color: var(--ion-color-primary) !important;
+}
+.lbl-mp-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Regular" !important;
+}
+.lbl-primary-15 {
+    font-size: 15px !important;
+    color: #ffa300 !important;
+}
+.lbl-bold-primary-15 {
+    font-size: 15px !important;
+    color: #ffa300 !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-med-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-med-op75-15 {
+    font-size: 15px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Medium" !important;
+    opacity: 0.75;
+}
+.lbl-bold-op05-15{
+    font-size: 15px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Bold" !important;
+    opacity: 0.5 !important;
+}
+.lbl-mp-med-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-bold-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-mp-bold-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold" !important;
+}
+.lbl-mp-bold-op09-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold" !important;
+    opacity: 0.9;
+}
+.lbl-light-15 {
+    font-family: "Gilroy-Light" !important;
+    font-size: 15px !important;
+    color: #000000 !important;
+}
+.lbl-thin-15 {
+    font-size: 15px;
+    color: black !important;
+    font-family: 'Gilroy-Thin';
+}
+.lbl-op05-15 {
+    font-size: 15px !important;
+    color: #000000 !important;
+    opacity: 0.5 !important;
+}
+.lbl-16 {
+    font-size: 16px !important;
+    color: #000000 !important;
+}
+.lbl-med-16{
+    font-size: 16px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-sb-16 {
+    font-size: 16px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-SemiBold" !important;
+}
+.lbl-mp-med-16{
+    font-size: 16px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-primary-med-16{
+    font-size: 16px !important;
+    color: var(--ion-color-primary) !important;
+    font-family: "Gilroy-Medium" !important;
+}
+.lbl-op05-16 {
+    font-size: 16px !important;
+    color: #000000 !important;
+    opacity: 0.5 !important;
+}
+.lbl-med-16 {
+    font-size: 16px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium";
+}
+.lbl-bold-16 {
+    font-size: 16px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-bold" !important;
+}
+.lbl-17 {
+    font-size: 17px !important;
+    color: #000000 !important;
+}
+.lbl-med-17 {
+    font-size: 17px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium";
+}
+.lbl-bold-17 {
+    font-size: 17px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-med-18 {
+    font-size: 18px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium";
+}
+.lbl-bold-18 {
+    font-size: 18px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-white-18 {
+    font-size: 18px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-white-19 {
+    font-size: 19px !important;
+    color: #ffffff !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-20 {
+    font-size: 20px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-white-20 {
+    font-size: 20px !important;
+    color: #FFFFFF !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-med-20 {
+    font-size: 20px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Medium";
+}
+.lbl-20 {
+    font-size: 20px !important;
+    color: var(--ion-color-primary) !important;
+}
+.lbl-bold-21 {
+    font-size: 21px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-22 {
+    font-size: 22px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-24 {
+    font-size: 24px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-24 {
+    font-size: 24px !important;
+    color: var(--ion-color-primary) !important;
+}
+.lbl-bold-25 {
+    font-size: 25px !important;
+    color: #000000 !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-white-28 {
+    font-size: 28px !important;
+    color: #ffffff !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-bold-26 {
+    font-size: 28px !important;
+    color: var(--ion-color-dark) !important;
+    font-family: "Gilroy-Bold";
+}
+.lbl-white-30 {
+    font-size: 30px !important;
+    color: #FFFFFF !important;
+}
+.lbl-35 {
+    font-size: 35px !important;
+    color: #000000 !important;
+}
+

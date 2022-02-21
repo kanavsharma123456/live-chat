@@ -1,0 +1,122 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-title class="ion-text-center">Welcome Back</ion-title>
+    <!-- <ion-buttons slot="start" class="ml-16">
+      <ion-back-button style="display: block;"  (click)="goback()"></ion-back-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+<!-- <div class="top-divv">
+</div> -->
+<ion-content class="bottom-bg">
+  <div class="primary-div flex flex-col ion-align-items-center pt-20">
+    <ion-text class="lbl-white-30">Get advice from </ion-text>
+    <ion-text class="lbl-white-30">a registered nurse</ion-text>
+  </div>
+  <div>
+    <div class="top-divv flex flex-col ion-align-items-center">
+      <ion-img [src]="CONST_DATA.heart" class="image-div"></ion-img>
+    </div>
+    <!-- <ion-row>
+      <div class="top-div mt-16">
+        <ion-img [src]="CONST_DATA.heart" class="image-div"></ion-img>
+      </div>
+    </ion-row> -->
+    <!-- <ion-row class="mt-16">
+      <ion-col class="ion-text-center">
+        <ion-text class="lbl-24">Would you like to...</ion-text>
+      </ion-col>
+    </ion-row> -->
+    <form [formGroup]="loginForm" style="margin-top: 20%">
+      <ion-grid>
+        <ion-row class="ml-16 mr-16">
+          <ion-col>
+            <ion-label class="lbl-20">Sign In</ion-label>
+            <ion-item
+              lines="none"
+              mode="md"
+              class="mt-8"
+              [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || isFormSubmit)"
+            >
+              <ion-input
+                id="ionInput"
+                formControlName="email"
+                placeholder="Enter email"
+              >
+              </ion-input>
+              <ion-icon [src]="CONST_DATA.ic_user" slot="start"></ion-icon>
+            </ion-item>
+            <app-validation
+              [validationMessages]="validationMessages.email"
+              [ValidationForm]="loginForm"
+              [type]="'email'"
+              [isFormSubmit]="isFormSubmit"
+            ></app-validation>
+            <ion-item
+              lines="none"
+              mode="md"
+              class="mt-12"
+              [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || isFormSubmit)"
+            >
+              <ion-input
+                [type]="isTextFieldType ? 'text' : 'password'"
+                formControlName="password"
+                (keyup.enter)="login()"
+                placeholder="Enter password"
+              >
+              </ion-input>
+              <ion-icon [src]="CONST_DATA.ic_password" slot="start"></ion-icon>
+              <ion-icon
+                [name]="isTextFieldType ? 'eye-off' : 'eye'"
+                (click)="togglePasswordFieldType()"
+                slot="end"
+                color="medium"
+                class="icon-cls"
+                size="small"
+              ></ion-icon>
+            </ion-item>
+            <app-validation
+              [validationMessages]="validationMessages.password"
+              [ValidationForm]="loginForm"
+              [type]="'password'"
+              [isFormSubmit]="isFormSubmit"
+            ></app-validation>
+            <app-validation
+              *ngIf="serverSideError"
+              [message]="serverSideError"
+              [isServerSide]="true"
+            ></app-validation>
+          </ion-col>
+        </ion-row>
+
+        <div class="ion-text-end mr-16 mt-4">
+          <p class="lbl-10 m-0" routerLink="/forgot-password">
+            Forgot Password?
+          </p>
+        </div>
+        <ion-row class="mt-12 ml-16 mr-16">
+          <ion-col size="12" class="ion-no-padding ion-text-center">
+            <div class="flex flex-col ion-align-items-center">
+              <ion-button class="btn-2 w-50" (click)="login()" mode="ios">
+                Sign In
+              </ion-button>
+              <ion-text class="lbl-15 mt-8 mb-8">or continue with</ion-text>
+              <ion-button class="btn-2 mb-8" mode="ios">
+                Quick Visit
+              </ion-button>
+              <ion-text class="lbl-14" (click)="openRegistere()"
+                >Don't have an account?
+                <span class="span-div">Sign Up</span></ion-text
+              >
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<!-- <ion-footer class="ion-no-border bg-image">
+  <ion-img [src]="CONST_DATA.bt_bg" class="footer-bg">
+  </ion-img>
+</ion-footer> -->
