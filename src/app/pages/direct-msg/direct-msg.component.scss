@@ -1,0 +1,126 @@
+@import "../../../assets/styles/ionic.mixin.scss";
+@import "../../../assets/styles//custom-label.scss";
+.bottom-bg {
+  --background: url("../../../assets/img/bt_bg1.png") 44% 130% no-repeat;
+  overflow: auto;
+}
+
+.header {
+  min-height: 55px !important;
+  border-radius: 0px 0px 20px 20px;
+  .left-icon {
+    position: relative;
+    left: 10px;
+    min-height: 55px !important;
+  }
+  .title {
+    min-height: 55px !important;
+  }
+}
+
+.relative {
+  position: relative;
+}
+.sender {
+  background-color: var(--ion-color-primary);
+  color: white;
+  width: 60%;
+  position: relative;
+  border-radius: 15px 15px 0px 15px;
+  left: calc(40% - 50px);
+  margin: 10px 0px 0px 0px;
+  padding: 10px;
+}
+.sender-audio {
+  width: 60%;
+  position: relative;
+  left: calc(40% - 50px);
+}
+audio {
+  max-width: 100%;
+}
+
+.img-msg-right {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+}
+.img-msg-left {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+}
+
+.time-right {
+  position: relative;
+  bottom: 8px;
+  right: 60px;
+  color: white;
+  font-size: 12px;
+}
+
+.time-left {
+  position: absolute;
+  bottom: 8px;
+  right: 120px;
+  color: black;
+  font-size: 12px;
+}
+.receiver {
+  margin: 20px 10px;
+  background-color: whitesmoke;
+  width: 60%;
+  border-radius: 15px 15px 15px 0px;
+  margin: 10px 0px 0px 50px;
+  padding: 10px;
+}
+ion-item {
+  @include ion-item-border;
+  --background: white;
+}
+
+ion-input {
+  @extend .lbl-med-16;
+}
+
+.send-message {
+  position: fixed;
+  bottom: 20px;
+  margin: 0px 20px;
+  width: 90%;
+  ion-input {
+    width: 100%;
+  }
+  display: flex;
+}
+.send-icon {
+  margin: 8px 0px 0px 5px;
+  background-color: var(--ion-color-primary);
+  width: 60px;
+  border-radius: 10px;
+  color: white;
+  ion-icon {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: 20px;
+    top: 14px;
+  }
+}
+// .msg-div {
+// }
+.message-reverse {
+  max-height: 84vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100% - 86px);
+}
+
+.big-mic {
+  color: red;
+}
