@@ -104,3 +104,12 @@ ion-toolbar {
     padding-top: 12px;
   }
 }
+
+.hidden {
+  display: none;
+}
+.imageView {
+  .ion-page {
+    display: block !important;
+  }
+}

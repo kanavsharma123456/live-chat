@@ -24,30 +24,21 @@
 
       <ion-row class="ml-16 mr-16">
         <ion-col size="5.7">
-          <div
-            class="flex ion-align-items-center"
-            [ngClass]="isPatientSelect ? 'sel-item-div':'item-div'"
-            (click)="onSelectItem(1)"
-          >
+          <div class="flex ion-align-items-center" [ngClass]="isPatientSelect ? 'sel-item-div':'item-div'"
+            (click)="onSelectItem(1)">
             <div class="flex flex-row ion-align-items-center flex-1">
-              <ion-icon src="assets/img/ic_ellipse.svg" class="ft-12"></ion-icon
-              ><ion-text class="lbl-15 ml-4">Patient</ion-text>
+              <ion-icon src="assets/img/ic_ellipse.svg" class="ft-12"></ion-icon>
+              <ion-text class="lbl-15 ml-4">Patient</ion-text>
             </div>
             <ion-icon [src]="CONST_DATA.ic_patient" class="ft-36"></ion-icon>
           </div>
         </ion-col>
         <ion-col size="0.6"> </ion-col>
         <ion-col size="5.7">
-          <div
-            class="flex ion-align-items-center"
-            [ngClass]="isNurseSelect ? 'sel-item-div':'item-div'"
-            (click)="onSelectItem(2)"
-          >
+          <div class="flex ion-align-items-center" [ngClass]="isNurseSelect ? 'sel-item-div':'item-div'"
+            (click)="onSelectItem(2)">
             <div class="flex flex-row ion-align-items-center flex-1">
-              <ion-icon
-                src="assets/img/ic_ellipse.svg"
-                class="ft-12"
-              ></ion-icon>
+              <ion-icon src="assets/img/ic_ellipse.svg" class="ft-12"></ion-icon>
               <ion-text class="lbl-15 ml-4">Nurse</ion-text>
             </div>
             <ion-icon [src]="CONST_DATA.ic_nurse" class="ft-36"></ion-icon>
@@ -57,25 +48,19 @@
 
       <ion-row *ngIf="isNurseSelect">
         <ion-col size="2.5"></ion-col>
-        <ion-col size="1"
-          ><div
-            [ngClass]="isSelectOne ? 'sel-num-div':'num-div'"
-            (click)="onSelectItemNumber(1)"
-          >
+        <ion-col size="1">
+          <div [ngClass]="isSelectOne ? 'sel-num-div':'num-div'" (click)="onSelectItemNumber(1)">
             1
-          </div></ion-col
-        >
-        <ion-col size="5" class="ion-align-self-center pr-0"
-          ><hr class="new2"
-        /></ion-col>
+          </div>
+        </ion-col>
+        <ion-col size="5" class="ion-align-self-center pr-0">
+          <hr class="new2" />
+        </ion-col>
         <ion-col size="1" class="pl-0">
-          <div
-            (click)="onSelectItemNumber(2)"
-            [ngClass]="isSelectTwo ? 'sel-num-div':'num-div'"
-          >
+          <div (click)="onSelectItemNumber(2)" [ngClass]="isSelectTwo ? 'sel-num-div':'num-div'">
             2
-          </div></ion-col
-        >
+          </div>
+        </ion-col>
         <ion-col size="2.5"></ion-col>
       </ion-row>
 
@@ -83,117 +68,50 @@
         <ion-col>
           <ng-container *ngIf="isSelectOne || isPatientSelect">
             <ion-item lines="none" mode="md" class="mt-8">
-              <ion-input
-                id="ionInput"
-                formControlName="fullName"
-                placeholder="Full Name"
-              >
+              <ion-input id="ionInput" formControlName="fullName" placeholder="Full Name">
               </ion-input>
             </ion-item>
-            <app-validation
-              [validationMessages]="validationMessages.fullName"
-              [ValidationForm]="commonForm"
-              [type]="'fullName'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.fullName" [ValidationForm]="commonForm"
+              [type]="'fullName'" [isFormSubmit]="isFormSubmit"></app-validation>
 
-            <ion-item
-              lines="none"
-              mode="md"
-              class="mt-8"
-              [class.invalid]="!commonForm.controls.email.valid && (commonForm.controls.email.dirty || isFormSubmit)"
-            >
-              <ion-input
-                id="ionInput"
-                formControlName="email"
-                placeholder="Enter email"
-              >
+            <ion-item lines="none" mode="md" class="mt-8"
+              [class.invalid]="!commonForm.controls.email.valid && (commonForm.controls.email.dirty || isFormSubmit)">
+              <ion-input id="ionInput" formControlName="email" placeholder="Enter email">
               </ion-input>
             </ion-item>
 
-            <app-validation
-              [validationMessages]="validationMessages.email"
-              [ValidationForm]="commonForm"
-              [type]="'email'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.email" [ValidationForm]="commonForm"
+              [type]="'email'" [isFormSubmit]="isFormSubmit"></app-validation>
 
             <ion-item lines="none" mode="md" class="mt-8">
-              <ion-input
-                minlength="10"
-                maxlength="10"
-                formControlName="phone_number"
-                type="text"
-                placeholder="Phone Number"
-                inputmode="numeric"
-                appInputInteger
-              ></ion-input>
+              <ion-input minlength="10" maxlength="10" formControlName="phone_number" type="text"
+                placeholder="Phone Number" inputmode="numeric" appInputInteger></ion-input>
             </ion-item>
-            <app-validation
-              [validationMessages]="validationMessages.phone"
-              [ValidationForm]="commonForm"
-              [type]="'phone_number'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.phone" [ValidationForm]="commonForm"
+              [type]="'phone_number'" [isFormSubmit]="isFormSubmit"></app-validation>
 
-            <ion-item
-              lines="none"
-              mode="md"
-              class="mt-8"
-              [class.invalid]="!commonForm.controls.password.valid && (commonForm.controls.password.dirty || isFormSubmit)"
-            >
-              <ion-input
-                [type]="isTextFieldType ? 'text' : 'password'"
-                formControlName="password"
-                placeholder="Password"
-                (ionChange)="onChangePassword($event)"
-              >
+            <ion-item lines="none" mode="md" class="mt-8"
+              [class.invalid]="!commonForm.controls.password.valid && (commonForm.controls.password.dirty || isFormSubmit)">
+              <ion-input [type]="isTextFieldType ? 'text' : 'password'" formControlName="password"
+                placeholder="Password" (ionChange)="onChangePassword($event)">
               </ion-input>
-              <ion-icon
-                [name]="isTextFieldType ? 'eye-off' : 'eye'"
-                (click)="togglePasswordFieldType()"
-                slot="end"
-                color="medium"
-                class="icon-cls"
-                size="small"
-              ></ion-icon>
+              <ion-icon [name]="isTextFieldType ? 'eye-off' : 'eye'" (click)="togglePasswordFieldType()" slot="end"
+                color="medium" class="icon-cls" size="small"></ion-icon>
             </ion-item>
 
-            <app-validation
-              [validationMessages]="validationMessages.changePassword"
-              [ValidationForm]="commonForm"
-              [type]="'password'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.changePassword" [ValidationForm]="commonForm"
+              [type]="'password'" [isFormSubmit]="isFormSubmit"></app-validation>
 
-            <ion-item
-              lines="none"
-              mode="md"
-              class="mt-8"
-              [class.invalid]="!commonForm.controls.retype_password.valid && (commonForm.controls.retype_password.dirty || isFormSubmit)"
-            >
-              <ion-input
-                [type]="isTextFieldTypeConf ? 'text' : 'password'"
-                formControlName="retype_password"
-                placeholder="Re-type Password"
-                (ionChange)="onChangePassword($event)"
-              >
+            <ion-item lines="none" mode="md" class="mt-8"
+              [class.invalid]="!commonForm.controls.retype_password.valid && (commonForm.controls.retype_password.dirty || isFormSubmit)">
+              <ion-input [type]="isTextFieldTypeConf ? 'text' : 'password'" formControlName="retype_password"
+                placeholder="Re-type Password" (ionChange)="onChangePassword($event)">
               </ion-input>
-              <ion-icon
-                [name]="isTextFieldTypeConf ? 'eye-off' : 'eye'"
-                (click)="toggleConfPasswordFieldType()"
-                slot="end"
-                color="medium"
-                class="icon-cls"
-                size="small"
-              ></ion-icon>
+              <ion-icon [name]="isTextFieldTypeConf ? 'eye-off' : 'eye'" (click)="toggleConfPasswordFieldType()"
+                slot="end" color="medium" class="icon-cls" size="small"></ion-icon>
             </ion-item>
-            <app-validation
-              [validationMessages]="validationMessages.confirmPassword"
-              [ValidationForm]="commonForm"
-              [type]="'retype_password'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.confirmPassword" [ValidationForm]="commonForm"
+              [type]="'retype_password'" [isFormSubmit]="isFormSubmit"></app-validation>
 
             <ion-row class="mt-8">
               <ion-col size="5.8" class="p-0">
@@ -210,19 +128,11 @@
               <ion-col size="0.4" class="p-0"> </ion-col>
               <ion-col size="5.8" class="p-0">
                 <ion-item lines="none" mode="md">
-                  <ion-input
-                    id="ionInput"
-                    formControlName="age"
-                    placeholder="Age"
-                  >
+                  <ion-input id="ionInput" formControlName="age" placeholder="Age">
                   </ion-input>
                 </ion-item>
-                <app-validation
-                  [validationMessages]="validationMessages.age"
-                  [ValidationForm]="commonForm"
-                  [type]="'age'"
-                  [isFormSubmit]="isFormSubmit"
-                ></app-validation>
+                <app-validation [validationMessages]="validationMessages.age" [ValidationForm]="commonForm"
+                  [type]="'age'" [isFormSubmit]="isFormSubmit"></app-validation>
               </ion-col>
             </ion-row>
           </ng-container>
@@ -238,19 +148,11 @@
               </ion-select>
             </ion-item>
             <ion-item lines="none" mode="md" class="mt-8">
-              <ion-input
-                id="ionInput"
-                formControlName="licenseNumber"
-                placeholder="License number"
-              >
+              <ion-input id="ionInput" formControlName="licenseNumber" placeholder="License number">
               </ion-input>
             </ion-item>
-            <app-validation
-              [validationMessages]="validationMessages.licenseNumber"
-              [ValidationForm]="commonForm"
-              [type]="'licenseNumber'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.licenseNumber" [ValidationForm]="commonForm"
+              [type]="'licenseNumber'" [isFormSubmit]="isFormSubmit"></app-validation>
 
             <ion-item class="mt-8">
               <ion-label>Years as a nurse</ion-label>
@@ -263,28 +165,17 @@
             </ion-item>
 
             <ion-item lines="none" mode="md" class="mt-8">
-              <ion-input
-                id="ionInput"
-                formControlName="specialities"
-                placeholder="Specialities"
-              >
+              <ion-input id="ionInput" formControlName="specialities" placeholder="Specialities">
               </ion-input>
             </ion-item>
-            <app-validation
-              [validationMessages]="validationMessages.specialities"
-              [ValidationForm]="commonForm"
-              [type]="'specialities'"
-              [isFormSubmit]="isFormSubmit"
-            ></app-validation>
+            <app-validation [validationMessages]="validationMessages.specialities" [ValidationForm]="commonForm"
+              [type]="'specialities'" [isFormSubmit]="isFormSubmit"></app-validation>
           </ng-container>
 
           <div class="flex flex-col mt-8 ion-align-items-center">
-            <ion-text class="lbl-primary-10"
-              >By coninuing you are aggreeing to
-              <span style="text-decoration: underline"
-                >Terms and conditions</span
-              ></ion-text
-            >
+            <ion-text class="lbl-primary-10">By coninuing you are aggreeing to
+              <span style="text-decoration: underline">Terms and conditions</span>
+            </ion-text>
           </div>
         </ion-col>
       </ion-row>

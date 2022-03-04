@@ -1,33 +1,40 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: "home",
     loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+      import("./home/home.module").then((m) => m.HomePageModule),
   },
   {
-    path: '',
-    redirectTo: 'get-started',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "direct-msg",
+    pathMatch: "full",
   },
   {
-    path: 'get-started',
+    path: "get-started",
     loadChildren: () =>
-      import('./pages/get-started/get-started.module').then(
+      import("./pages/get-started/get-started.module").then(
         (m) => m.GetStartedPageModule
       ),
   },
   {
-    path: 'login',
+    path: "login",
     loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginPageModule),
+      import("./pages/login/login.module").then((m) => m.LoginPageModule),
   },
   {
-    path: 'sign-up',
+    path: "direct-msg",
     loadChildren: () =>
-      import('./pages/sign-up/sign-up.module').then((m) => m.SignUpPageModule),
+      import("./pages/direct-msg/direct-msg.module").then(
+        (m) => m.DirectMsgModule
+      ),
+  },
+  {
+    path: "sign-up",
+    loadChildren: () =>
+      import("./pages/sign-up/sign-up.module").then((m) => m.SignUpPageModule),
   },
 ];
 
