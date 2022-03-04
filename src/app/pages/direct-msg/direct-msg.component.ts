@@ -8,7 +8,6 @@ import {
 import { ModalController } from "@ionic/angular";
 import { UploadViewImageComponent } from "./upload-view-image/upload-view-image.component";
 import { ChatService } from "src/app/pages/services/dm/dm.service";
-import { IonInfiniteScroll } from "@ionic/angular";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { RecordingData, VoiceRecorder } from "capacitor-voice-recorder";
 import { GestureController } from "@ionic/angular";
@@ -20,16 +19,18 @@ import { dataURItoBlob, checkFileType } from "../services/helpers/utilities";
   styleUrls: ["./direct-msg.component.scss"],
 })
 export class DirectMsgComponent implements OnInit, AfterViewInit {
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   patientReqId = 50;
   messageList = [];
   sender = 8;
-  page_size = 5;
+  pageSize = 8;
   pageNumber = 1;
+  lastPage = 2;
   totalSize = 0;
   recording = false;
   recordDuration = 0;
   recordDurDisplay = "";
+  loadingMessages = false;
+  lastScrollTop = 0;
   form: FormGroup;
   @ViewChild("recordBtn", { read: ElementRef }) recordBtn: ElementRef;
   constructor(
@@ -43,6 +44,7 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
     this.form = this.formBuilder.group({
       message: [null],
     });
+    this.loadingMessages = true;
     this.getMessages();
     VoiceRecorder.requestAudioRecordingPermission();
   }
@@ -85,14 +87,16 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
 
   getMessages(event?) {
     this.chatService
-      .getMessages(this.patientReqId, this.pageNumber, this.page_size)
+      .getMessages(this.patientReqId, this.pageNumber, this.pageSize)
       .subscribe((res) => {
         let messageData = res.data.messages.data;
         this.messageList = this.messageList.concat(messageData);
         this.totalSize = res.data.messages.total;
-        if (event) {
-          event.target.complete();
-        }
+        this.lastPage = res.data.messages.last_page;
+        this.loadingMessages = false;
+        // if (event) {
+        //   event.target.complete();
+        // }
       });
   }
 
@@ -150,7 +154,29 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
   }
 
   async onScroll(event) {
-    console.log(event);
+    // console.log("total", event.target.clientHeight);
+    // console.log("scrollHeight", event.target.scrollHeight);
+    // console.log(
+    //   "scrollTop",
+    //   -1 * (event.target.scrollTop - event.target.clientHeight - 200)
+    // );
+    if (this.lastScrollTop < event.target.scrollTop) {
+      console.log("scroll down");
+      return;
+    } else {
+      console.log("scroll up", event.target.scrollTop);
+      this.lastScrollTop = event.target.scrollTop;
+      if (
+        this.pageNumber < this.lastPage &&
+        -1 * (event.target.scrollTop - event.target.clientHeight - 200) >=
+          event.target.scrollHeight &&
+        !this.loadingMessages
+      ) {
+        this.pageNumber++;
+        this.loadingMessages = true;
+        this.getMessages();
+      }
+    }
   }
 
   async imgVideoModal(type, file) {
@@ -182,23 +208,23 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
     });
   }
 
-  scrollEvent(event) {
-    if (this.messageList.length != 0) {
-      if (this.messageList.length < this.totalSize) {
-        console.log("ccs");
-        console.log(event.target.disabled);
-        event.target.disabled = false;
-        this.pageNumber++;
-        this.getMessages(event);
-      } else {
-        console.log("c");
-        event.target.disabled = true;
-      }
-    } else {
-      console.log("sa");
-      this.getMessages(event);
-    }
-  }
+  // scrollEvent(event) {
+  //   if (this.messageList.length != 0) {
+  //     if (this.messageList.length < this.totalSize) {
+  //       console.log("ccs");
+  //       console.log(event.target.disabled);
+  //       event.target.disabled = false;
+  //       this.pageNumber++;
+  //       this.getMessages(event);
+  //     } else {
+  //       console.log("c");
+  //       event.target.disabled = true;
+  //     }
+  //   } else {
+  //     console.log("sa");
+  //     this.getMessages(event);
+  //   }
+  // }
 
   async viewImgVideo(data) {
     const modal = await this.modalCtrl.create({

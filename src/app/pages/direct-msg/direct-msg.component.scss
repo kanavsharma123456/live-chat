@@ -115,7 +115,7 @@ ion-input {
 // }
 .message-reverse {
   max-height: 84vh;
-  overflow: auto;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column-reverse;
   height: calc(100% - 86px);
@@ -123,4 +123,8 @@ ion-input {
 
 .big-mic {
   color: red;
+}
+
+video {
+  max-width: 100%;
 }

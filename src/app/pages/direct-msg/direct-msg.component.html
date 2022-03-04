@@ -5,83 +5,109 @@
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content [scrollEvents]="true" class="bottom-bg">
-
-  <ion-list (ionScroll)="onScroll($event)" class="message-reverse">
+<ion-content class="bottom-bg">
+  <ion-list (scroll)="onScroll($event)" class="message-reverse">
     <div *ngFor="let msg of messageList" class="msg-div">
+      <ion-row *ngIf="msg.sender_id == sender" class="relative mt-16">
+        <ion-text *ngIf="msg.message.type == 'TXT'" class="sender"
+          >{{ msg.message.data }}
+        </ion-text>
+        <ion-text *ngIf="msg.message.type == 'audio'" class="sender-audio">
+          <audio
+            class="audio-class"
+            controls
+            preload="auto"
+            [src]="msg.message.data"
+          ></audio>
+        </ion-text>
+        <ion-text *ngIf="msg.message.type == 'video'" class="sender">
+          <video
+            (click)="viewImgVideo(msg.message)"
+            class="video-class"
+            controls
+            preload="auto"
+            [src]="msg.message.data"
+          ></video>
+        </ion-text>
+        <ion-text class="sender" *ngIf="msg.message.type == 'img'">
+          <img
+            (click)="viewImgVideo(msg.message)"
+            [src]="msg.message.data"
+            alt=""
+          />
+          {{ msg.message.caption ? msg.message.caption : "" }}
+        </ion-text>
+        <img class="img-msg-right" src="assets/img/slide1.png" alt="" />
 
-      <ion-row *ngIf="msg.sender_id==sender" class="relative mt-16">
-        <ion-text *ngIf="msg.message.type=='TXT'" class="sender">{{msg.message.data}}
-        </ion-text>
-        <ion-text *ngIf="msg.message.type=='audio'" class="sender-audio">
-          <audio class="audio-class" controls preload="auto" [src]="msg.message.data">
-          </audio>
-        </ion-text>
-        <ion-text *ngIf="msg.message.type=='video'" class="sender">
-          <video (click)="viewImgVideo(msg.message)" class="video-class" controls preload="auto"
-            [src]="msg.message.data">
-          </video>
-        </ion-text>
-        <ion-text class="sender" *ngIf="msg.message.type=='img'">
-          <img (click)="viewImgVideo(msg.message)" [src]="msg.message.data" alt="">
-          {{msg.message.caption?msg.message.caption:''}}
-        </ion-text>
-        <img class="img-msg-right" src="assets/img/slide1.png" alt="">
-
-        <p class="time-right">{{msg.created_at | date:'HH:mm'}}
-        </p>
+        <p class="time-right">{{ msg.created_at | date: "HH:mm" }}</p>
       </ion-row>
 
-      <ion-row *ngIf="msg.sender_id!=sender" class="relative mt-16">
-        <ion-text *ngIf="msg.message.type=='audio'" class="receiver-audio">
-          <audio class="audio-class" controls preload="auto" [src]="msg.message.data">
-          </audio>
+      <ion-row *ngIf="msg.sender_id != sender" class="relative mt-16">
+        <ion-text *ngIf="msg.message.type == 'audio'" class="receiver-audio">
+          <audio
+            class="audio-class"
+            controls
+            preload="auto"
+            [src]="msg.message.data"
+          ></audio>
         </ion-text>
-        <ion-text *ngIf="msg.message.type=='video'" class="receiver">
-          <video class="audio-class" controls preload="auto" [src]="msg.message.data">
-          </video>
+        <ion-text *ngIf="msg.message.type == 'video'" class="receiver">
+          <video
+            class="audio-class"
+            controls
+            preload="auto"
+            [src]="msg.message.data"
+          ></video>
         </ion-text>
-        <ion-text class="receiver" *ngIf="msg.message.type=='img'">
-          <img [src]="msg.message.data" alt="">
-          {{msg.message.caption?msg.message.caption:''}}
+        <ion-text class="receiver" *ngIf="msg.message.type == 'img'">
+          <img [src]="msg.message.data" alt="" />
+          {{ msg.message.caption ? msg.message.caption : "" }}
         </ion-text>
-        <ion-text *ngIf="msg.message.type=='TXT'" class="receiver">{{msg.message.data}}</ion-text>
-        <img class="img-msg-left" src="assets/img/slide1.png" alt="">
+        <ion-text *ngIf="msg.message.type == 'TXT'" class="receiver">{{
+          msg.message.data
+        }}</ion-text>
+        <img class="img-msg-left" src="assets/img/slide1.png" alt="" />
 
-        <ion-text class="time-left">{{msg.created_at | date:'HH:mm'}}
+        <ion-text class="time-left"
+          >{{ msg.created_at | date: "HH:mm" }}
         </ion-text>
       </ion-row>
-
     </div>
   </ion-list>
 
   <form [formGroup]="form" class="relative send-message">
-    <ion-item lines="none" mode="md" class=" mt-8">
+    <ion-item lines="none" mode="md" class="mt-8">
+      <ion-icon
+        *ngIf="recordDurDisplay"
+        class="big-mic"
+        name="mic-outline"
+        slot="start"
+      ></ion-icon>
+      <ion-input *ngIf="recordDurDisplay">{{ recordDurDisplay }} </ion-input>
 
-      <ion-icon *ngIf="recordDurDisplay" class="big-mic" name="mic-outline" slot="start"></ion-icon>
-      <ion-input *ngIf="recordDurDisplay">{{recordDurDisplay}}
-      </ion-input>
-
-      <ion-input *ngIf="!recordDurDisplay" formControlName="message" placeholder="Start Typing">
+      <ion-input
+        *ngIf="!recordDurDisplay"
+        formControlName="message"
+        placeholder="Start Typing"
+      >
       </ion-input>
 
       <ion-icon #recordBtn name="mic-outline" slot="end"></ion-icon>
-      <ion-icon (click)="attachFile.click()" name="camera-outline" slot="end"></ion-icon>
+      <ion-icon
+        (click)="attachFile.click()"
+        name="camera-outline"
+        slot="end"
+      ></ion-icon>
     </ion-item>
-
 
     <div (click)="sendMsg()" class="send-icon">
       <ion-icon name="send"></ion-icon>
     </div>
   </form>
 
-
   <!-- <ion-infinite-scroll position="top" threshold="100px" (ionInfinite)="scrollEvent($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll> -->
-
-
 </ion-content>
-<input #attachFile type="file" (change)="attachFileIm($event)" class="hidden">
+<input #attachFile type="file" (change)="attachFileIm($event)" class="hidden" />
