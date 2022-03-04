@@ -1,0 +1,103 @@
+.round-8 {
+  border-radius: 8px;
+}
+.w-ft {
+  width: fit-content;
+}
+.w-100 {
+  width: 100%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-p-70 {
+  width: 70px;
+}
+.h-p-70 {
+  height: 70px;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+// font size
+.ft-4 {
+  font-size: 4px;
+}
+.ft-6 {
+  font-size: 6px;
+}
+.ft-8 {
+  font-size: 8px;
+}
+.ft-12 {
+  font-size: 12px;
+}
+.ft-16 {
+  font-size: 16px;
+}
+.ft-20 {
+  font-size: 20px;
+}
+.ft-24 {
+  font-size: 24px;
+}
+
+.ft-36 {
+  font-size: 36px;
+}
+
+// line height
+
+.lh-16 {
+  line-height: 16px;
+}
+.lh-17 {
+  line-height: 17px;
+}
+.lh-20 {
+  line-height: 20px;
+}
+.lh-22 {
+  line-height: 22px;
+}
+.avt-20 {
+  height: 20px;
+  width: 20px;
+}
+.avt-36 {
+  height: 36px;
+  width: 36px;
+}
+.mlines-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.mlines-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.mlines-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}

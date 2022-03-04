@@ -1,0 +1,71 @@
+// ion-slides {
+//     height: 100%;
+//   }
+.slides{
+    --bullet-background	:#31CDA0;
+    --bullet-background-active:var(--ion-color-secondary);
+}
+.slide2{
+    padding-top: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.prev-btn{
+    background: rgba(12, 96, 123, 0.1);
+border: 1px solid rgba(12, 96, 123, 0.1);
+box-sizing: border-box;
+border-radius: 0px 16px 16px 0px;
+padding:4px;
+}
+.next-btn{
+    background: #31CDA0;
+border: 1px solid rgba(162, 158, 181, 0.2);
+box-sizing: border-box;
+border-radius: 16px 0px 0px 16px;
+padding:4px;
+}
+.bullet-sel{
+width: 28px;
+height: 7px;
+background: #1679F1;
+border-radius: 5.66403px;
+}
+
+.bullets{
+    width: 14px;
+    height: 7px;
+    background: #FFFFFF;
+    border-radius: 5.66403px;
+    }
+    .container {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      .top-right {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+      } 
+      .bg-content{
+        --background: #31CDA0;
+      }
+
+    //   ion-content {
+    //       --background: var(--ion-color-primary);
+    //   }
+    //   .bottom-bg{
+    //     --background: url(../../../assets/img/bt_bg.png) 44% -127% no-repeat;
+    // }
+  
+// .image-bgg {
+//     --background: url("../../../assets/img/dia.png") 44% 140% no-repeat;
+// }
+
+// .curve-j4-1024{
+//     --background: var(--ion-color-light) url(./assets/img/curve_j4_1024.png)  100% 100%  no-repeat;
+// }
+
+.image-bgg {
+    --background: var(--ion-color-primary)  url("../../../assets/img/bt_bg1.png") 44% 123% no-repeat;
+}

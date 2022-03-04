@@ -1,0 +1,10 @@
+export const slide1="assets/img/slide1.png";
+export const slide2="assets/img/slide2.png";
+export const bt_bg="assets/img/bt_bg.png";
+export const heart="assets/img/heart.png";
+export const ic_user="assets/img/ic_user.svg";
+export const ic_password="assets/img/ic_password.svg";
+export const ic_patient="assets/img/ic_patient.svg";
+export const ic_patient_light="assets/img/ic_patient_light.svg";
+export const ic_nurse_light="assets/img/ic_nurse_light.svg";
+export const ic_nurse="assets/img/ic_nurse.svg";

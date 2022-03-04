@@ -1,0 +1,32 @@
+
+<ion-content fullscreen="true" class="image-bgg">
+  <ion-row class="mt-16">
+    <ion-col class="ion-text-end">
+      <ion-text (click)="skipPage()" class="pr-16" style="color: #81A7C3;font-weight: bold;">Skip
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  <div class="ion-text-center mt-24">
+    <ion-slides pager="false" class="slides" (ionSlideDidChange)="slideChanged($event)" #slides>
+      <ion-slide>
+        <div class="flex flex-col">
+          <ion-text class="lbl-white-30">Get advice from registered nurse</ion-text>
+          <ion-img [src]="CONST_DATA.slide1" class=""></ion-img>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="flex flex-col">
+          <ion-text class="lbl-white-30">Get advice from registered nurse</ion-text>
+          <ion-img [src]="CONST_DATA.slide2" class="slide2" ></ion-img>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <ion-row class="ion-justify-content-center">
+      <div [ngClass]="currentIndex === 0 ? 'bullet-sel':'bullets'"></div>
+      <div [ngClass]="currentIndex === 1 ? 'bullet-sel':'bullets'" class="ml-8"></div>
+    </ion-row>
+    <ion-button class="btn-1 mt-24"  mode="ios" routerLink="/login">
+      Get Statred
+    </ion-button>
+  </div>
+</ion-content>
