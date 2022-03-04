@@ -1,0 +1,23 @@
+<div class="close-row">
+  <ion-icon (click)="close()" name="close-outline"></ion-icon>
+</div>
+
+<div class="mt-8 img-div">
+  <img *ngIf="type=='img'" class="img-view" [src]="src" onerror="this.src='assets/img/slide1.png'" alt="">
+  <video controls *ngIf="type!='img' && viewData" [src]="videoUrl()"></video>
+  <video controls *ngIf="type!='img' && !viewData" [src]="videoUrl()"></video>
+</div>
+
+<form *ngIf="!viewData" [formGroup]="form" class="relative send-message">
+  <ion-item [formGroup]="form" lines="none" mode="md" class="mt-8">
+    <ion-icon (click)="attachFile.click()" name="image-outline" slot="start"></ion-icon>
+    <ion-input formControlName="message" placeholder="Add a caption">
+    </ion-input>
+  </ion-item>
+  <div (click)="sendMsg()" class="send-icon">
+    <ion-icon name="send"></ion-icon>
+  </div>
+</form>
+
+
+<input #attachFile accept="video/*,image/*" type="file" (change)="changeFile($event)" class="hidden">
