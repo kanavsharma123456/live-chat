@@ -62,12 +62,11 @@ export class DirectMsgComponent implements OnInit, AfterViewInit, OnDestroy {
         this.feedService.initiatePusher(this.patientReqId);
         this.feedService.getFeedItems().subscribe((res) => {
           this.messageList.unshift(res);
-          console.log(this.messageList);
         });
       } else {
-        this.feedService.initiatePusher1(this.patientReqId);
-        // this.getMessages();
-        // VoiceRecorder.requestAudioRecordingPermission();
+        // this.feedService.initiatePusher1(this.patientReqId);
+        this.getMessages();
+        VoiceRecorder.requestAudioRecordingPermission();
       }
     });
 
@@ -122,6 +121,9 @@ export class DirectMsgComponent implements OnInit, AfterViewInit, OnDestroy {
         this.totalSize = res.data.messages.total;
         this.lastPage = res.data.messages.last_page;
         this.loadingMessages = false;
+        this.chatService
+          .seenMessage(this.patientReqId, this.messageList[0].id)
+          .subscribe((res) => {});
       });
   }
 

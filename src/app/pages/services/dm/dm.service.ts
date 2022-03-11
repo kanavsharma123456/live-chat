@@ -39,4 +39,14 @@ export class ChatService {
       req
     );
   }
+
+  seenMessage(patientRequestId, id) {
+    return this.http.get<getMessagesResponse>(
+      applicationUrls.appPatientRequests +
+        patientRequestId +
+        "/messages/" +
+        id +
+        "/seen"
+    );
+  }
 }
