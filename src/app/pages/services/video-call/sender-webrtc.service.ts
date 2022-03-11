@@ -35,7 +35,7 @@ export class AlertsService {
     this.subscriberCode = null;
     this.maxVideoBitrateKbps = "unlimited";
 
-    const path = `stream.20twenty20.com/${this.appName}/websocket?rtmpForward=${this.rtmpForward}`;
+    const path = `webrtc.storbeey.com/${this.appName}/websocket?rtmpForward=${this.rtmpForward}`;
     this.websocketURL = "ws://" + path;
     if (location.protocol.startsWith("https")) {
       this.websocketURL = "wss://" + path;

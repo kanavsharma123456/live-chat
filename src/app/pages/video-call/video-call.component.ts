@@ -13,7 +13,7 @@ import { VideoCallService } from "src/app/pages/services/video-call/video-call.s
   styleUrls: ["./video-call.component.scss"],
 })
 export class VideoCallComponent implements OnInit {
-  patientRequestId = 53;
+  patientRequestId = 55;
   recordDuration = 0;
   recordDurDisplay = "";
   recording = false;
@@ -40,9 +40,11 @@ export class VideoCallComponent implements OnInit {
         this.toggleVideo = false;
         this.recording = true;
         this.calculateDuration();
-      } else {
+      } else if (this.members.length == 1) {
         this.toggleVideo = true;
         this.ringPerson();
+      } else {
+        this.toggleVideo = true;
       }
     });
 
@@ -61,11 +63,11 @@ export class VideoCallComponent implements OnInit {
   getDetails() {
     this.videoCallService.getDetails(this.patientRequestId).subscribe((res) => {
       if (this.isPatient) {
-        // this.sendVideo(
-        //   res.data.video_call.patient_stream_id,
-        //   res.data.stream_publish_token.tokenId
-        // );
-        // this.recieveVideo(res.data.video_call.nurse_stream_id);
+        this.sendVideo(
+          res.data.video_call.patient_stream_id,
+          res.data.stream_publish_token.tokenId
+        );
+        this.recieveVideo(res.data.video_call.nurse_stream_id);
       } else {
         this.sendVideo(
           res.data.video_call.nurse_stream_id,
@@ -129,7 +131,7 @@ export class VideoCallComponent implements OnInit {
           text: "Okay",
           handler: () => {
             this.recording = false;
-            // this.senderAlertsService.closeConnection();
+            this.senderAlertsService.closeConnection();
           },
         },
       ],

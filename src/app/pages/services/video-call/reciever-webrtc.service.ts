@@ -26,7 +26,7 @@ export class RecieverAlertsService {
 
     var appName = "nursemeetz";
     var rtmpForward = null;
-    const path = `stream.20twenty20.com/${appName}/websocket?rtmpForward=${rtmpForward}`;
+    const path = `webrtc.storbeey.com/${appName}/websocket?rtmpForward=${rtmpForward}`;
     var websocketURL = "ws://" + path;
 
     if (location.protocol.startsWith("https")) {
