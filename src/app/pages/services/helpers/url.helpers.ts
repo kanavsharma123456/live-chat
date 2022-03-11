@@ -37,6 +37,9 @@ class Urls {
   get nursePatientRequests() {
     return this.Nurse + "/patient-requests/";
   }
+  get pusherAuth() {
+    return `${environment.serverUrl}/api/broadcasting/auth`;
+  }
 }
 
 export const applicationUrls = new Urls();

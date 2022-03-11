@@ -4,7 +4,11 @@ import {
   OnInit,
   ViewChild,
   AfterViewInit,
+  OnDestroy,
 } from "@angular/core";
+import { PusherService } from "src/app/pages/services/pusher/pusher.service";
+
+import { Subscription } from "rxjs";
 import { ModalController } from "@ionic/angular";
 import { UploadViewImageComponent } from "./upload-view-image/upload-view-image.component";
 import { ChatService } from "src/app/pages/services/dm/dm.service";
@@ -12,15 +16,20 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { RecordingData, VoiceRecorder } from "capacitor-voice-recorder";
 import { GestureController } from "@ionic/angular";
 import { Haptics, ImpactStyle } from "@capacitor/haptics";
+import { ActivatedRoute } from "@angular/router";
+import { NavParams } from "@ionic/angular";
 import { dataURItoBlob, checkFileType } from "../services/helpers/utilities";
 @Component({
   selector: "app-direct-msg",
   templateUrl: "./direct-msg.component.html",
   styleUrls: ["./direct-msg.component.scss"],
+  providers: [PusherService],
 })
-export class DirectMsgComponent implements OnInit, AfterViewInit {
-  patientReqId = 50;
+export class DirectMsgComponent implements OnInit, AfterViewInit, OnDestroy {
+  patientReqId = 53;
   messageList = [];
+  modalView = false;
+  private feedSubscription: Subscription;
   sender = 8;
   pageSize = 8;
   pageNumber = 1;
@@ -32,21 +41,40 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
   loadingMessages = false;
   lastScrollTop = 0;
   form: FormGroup;
+  isLive = false;
   @ViewChild("recordBtn", { read: ElementRef }) recordBtn: ElementRef;
   constructor(
     private formBuilder: FormBuilder,
     private chatService: ChatService,
     private gestureCtrl: GestureController,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private feedService: PusherService,
+    private activatedRoute: ActivatedRoute,
+    private params: NavParams
   ) {}
 
   ngOnInit() {
+    this.modalView = this.params.data.isModal ? this.params.data.isModal : null;
+
+    this.activatedRoute.queryParams.subscribe((res) => {
+      if (res.isLive) {
+        this.isLive = true;
+        this.feedService.initiatePusher(this.patientReqId);
+        this.feedService.getFeedItems().subscribe((res) => {
+          this.messageList.unshift(res);
+          console.log(this.messageList);
+        });
+      } else {
+        this.feedService.initiatePusher1(this.patientReqId);
+        // this.getMessages();
+        // VoiceRecorder.requestAudioRecordingPermission();
+      }
+    });
+
     this.form = this.formBuilder.group({
       message: [null],
     });
     this.loadingMessages = true;
-    this.getMessages();
-    VoiceRecorder.requestAudioRecordingPermission();
   }
 
   ngAfterViewInit() {
@@ -94,9 +122,6 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
         this.totalSize = res.data.messages.total;
         this.lastPage = res.data.messages.last_page;
         this.loadingMessages = false;
-        // if (event) {
-        //   event.target.complete();
-        // }
       });
   }
 
@@ -145,26 +170,19 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
     }
     const file = files.item(0);
     const type = checkFileType(file.type);
-    console.log(type);
     if (type == "audio") {
       this.uploadAudio(file);
     } else if (type == "video" || type == "img") {
       this.imgVideoModal(type, file);
+    } else if (type == "doc") {
+      this.uploadDoc(file);
     }
   }
 
   async onScroll(event) {
-    // console.log("total", event.target.clientHeight);
-    // console.log("scrollHeight", event.target.scrollHeight);
-    // console.log(
-    //   "scrollTop",
-    //   -1 * (event.target.scrollTop - event.target.clientHeight - 200)
-    // );
     if (this.lastScrollTop < event.target.scrollTop) {
-      console.log("scroll down");
       return;
     } else {
-      console.log("scroll up", event.target.scrollTop);
       this.lastScrollTop = event.target.scrollTop;
       if (
         this.pageNumber < this.lastPage &&
@@ -208,23 +226,22 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // scrollEvent(event) {
-  //   if (this.messageList.length != 0) {
-  //     if (this.messageList.length < this.totalSize) {
-  //       console.log("ccs");
-  //       console.log(event.target.disabled);
-  //       event.target.disabled = false;
-  //       this.pageNumber++;
-  //       this.getMessages(event);
-  //     } else {
-  //       console.log("c");
-  //       event.target.disabled = true;
-  //     }
-  //   } else {
-  //     console.log("sa");
-  //     this.getMessages(event);
-  //   }
-  // }
+  uploadDoc(file) {
+    this.chatService.uploadFile(this.patientReqId, file).subscribe((res) => {
+      let req = {
+        message: {
+          type: "doc",
+          data: res.data.path,
+          name: file.name,
+        },
+      };
+      this.saveMessage(req);
+    });
+  }
+
+  openDoc(url) {
+    window.open(url, "_system", "location=yes");
+  }
 
   async viewImgVideo(data) {
     const modal = await this.modalCtrl.create({
@@ -236,7 +253,10 @@ export class DirectMsgComponent implements OnInit, AfterViewInit {
   }
   saveMessage(req) {
     this.chatService.uploadMessages(this.patientReqId, req).subscribe((res) => {
-      this.messageList.unshift(res.data.message);
+      this.isLive ? "" : this.messageList.unshift(res.data.message);
     });
+  }
+  ngOnDestroy() {
+    this.feedSubscription ? this.feedSubscription.unsubscribe() : "";
   }
 }

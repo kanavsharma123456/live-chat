@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "direct-msg",
+    redirectTo: "video-call",
     pathMatch: "full",
   },
   {
@@ -31,6 +31,14 @@ const routes: Routes = [
         (m) => m.DirectMsgModule
       ),
   },
+  {
+    path: "video-call",
+    loadChildren: () =>
+      import("./pages/video-call/video-call.module").then(
+        (m) => m.VideoCallModule
+      ),
+  },
+
   {
     path: "sign-up",
     loadChildren: () =>

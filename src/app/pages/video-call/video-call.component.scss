@@ -1,0 +1,65 @@
+.left-back-icon {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: white;
+  z-index: 2;
+}
+
+.relative {
+  position: relative;
+}
+
+.largeVideo {
+  object-fit: fill;
+  height: 100vh;
+  width: 100%;
+}
+.smallVideo {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  height: 130px;
+  width: 130px;
+  object-fit: fill;
+  z-index: 2;
+  border-radius: 15px;
+}
+
+.duration {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 170px;
+  display: inline-block;
+  color: white;
+  left: 0;
+}
+
+.icon-menu {
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  display: inline-block;
+  z-index: 4;
+  .m-10 {
+    margin: 0px 10px;
+    font-size: 30px;
+    padding: 8px;
+    border-radius: 50px;
+    background-color: white;
+    z-index: 3;
+  }
+  .end-call {
+    background-color: red;
+    color: white;
+    font-size: 40px;
+    vertical-align: bottom;
+  }
+}
+
+.redIcon {
+  color: red;
+}

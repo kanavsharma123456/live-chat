@@ -1,103 +1,100 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="header ion-no-border">
-    <ion-title class="ion-text-center title">Ms Jane Winter </ion-title>
-    <ion-icon class="left-icon" name="arrow-back-outline"></ion-icon>
+    <ion-row>
+      <ion-icon class="left-icon" name="arrow-back-outline"></ion-icon>
+      <ion-title class="ion-text-center title">Ms Jane Winter </ion-title>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="bottom-bg">
-  <ion-list (scroll)="onScroll($event)" class="message-reverse">
+  <ion-list (scroll)="onScroll($event)" [class]="modalView?'message-reverse shortView':'message-reverse'">
     <div *ngFor="let msg of messageList" class="msg-div">
       <ion-row *ngIf="msg.sender_id == sender" class="relative mt-16">
-        <ion-text *ngIf="msg.message.type == 'TXT'" class="sender"
-          >{{ msg.message.data }}
+
+        <ion-text *ngIf="msg.message.type == 'TXT'" class="sender">{{ msg.message.data }}
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
-        <ion-text *ngIf="msg.message.type == 'audio'" class="sender-audio">
-          <audio
-            class="audio-class"
-            controls
-            preload="auto"
-            [src]="msg.message.data"
-          ></audio>
+
+        <ion-text *ngIf="msg.message.type == 'doc'" class="sender msg-file">
+          <div class="box">
+            <ion-icon name="document-attach-outline"></ion-icon>
+            <h5>{{ msg.message.name }}</h5>
+          </div>
+          <p class="viewFile" (click)="openDoc(msg.message.data)">View File</p>
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
+
+
+        <ion-text *ngIf="msg.message.type == 'audio'" class="sender">
+          <audio class="audio-class" controls preload="auto" [src]="msg.message.data"></audio>
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
+        </ion-text>
+
         <ion-text *ngIf="msg.message.type == 'video'" class="sender">
-          <video
-            (click)="viewImgVideo(msg.message)"
-            class="video-class"
-            controls
-            preload="auto"
-            [src]="msg.message.data"
-          ></video>
+          <video (click)="viewImgVideo(msg.message)" class="video-class" controls preload="auto"
+            [src]="msg.message.data"></video>
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
+
         <ion-text class="sender" *ngIf="msg.message.type == 'img'">
-          <img
-            (click)="viewImgVideo(msg.message)"
-            [src]="msg.message.data"
-            alt=""
-          />
+          <img (click)="viewImgVideo(msg.message)" [src]="msg.message.data" alt="" />
           {{ msg.message.caption ? msg.message.caption : "" }}
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
         <img class="img-msg-right" src="assets/img/slide1.png" alt="" />
 
-        <p class="time-right">{{ msg.created_at | date: "HH:mm" }}</p>
       </ion-row>
 
       <ion-row *ngIf="msg.sender_id != sender" class="relative mt-16">
-        <ion-text *ngIf="msg.message.type == 'audio'" class="receiver-audio">
-          <audio
-            class="audio-class"
-            controls
-            preload="auto"
-            [src]="msg.message.data"
-          ></audio>
+
+        <ion-text *ngIf="msg.message.type == 'audio'" class="receiver">
+          <audio class="audio-class" controls preload="auto" [src]="msg.message.data"></audio>
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
+
+        <ion-text *ngIf="msg.message.type == 'doc'" class="receiver msg-file">
+          <div class="box">
+            <ion-icon name="document-attach-outline"></ion-icon>
+            <h5>{{ msg.message.name }}</h5>
+          </div>
+          <p class="viewFile" (click)="openDoc(msg.message.data)">View File</p>
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
+        </ion-text>
+
+
         <ion-text *ngIf="msg.message.type == 'video'" class="receiver">
-          <video
-            class="audio-class"
-            controls
-            preload="auto"
-            [src]="msg.message.data"
-          ></video>
+          <video class="audio-class" controls preload="auto" [src]="msg.message.data"></video>
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
+
         <ion-text class="receiver" *ngIf="msg.message.type == 'img'">
           <img [src]="msg.message.data" alt="" />
           {{ msg.message.caption ? msg.message.caption : "" }}
+          <small>{{ msg.created_at | date: "shortTime" }}</small>
         </ion-text>
+
         <ion-text *ngIf="msg.message.type == 'TXT'" class="receiver">{{
           msg.message.data
-        }}</ion-text>
+          }} <small>{{ msg.created_at | date: "shortTime" }}</small>
+        </ion-text>
+
         <img class="img-msg-left" src="assets/img/slide1.png" alt="" />
 
-        <ion-text class="time-left"
-          >{{ msg.created_at | date: "HH:mm" }}
-        </ion-text>
       </ion-row>
     </div>
   </ion-list>
 
-  <form [formGroup]="form" class="relative send-message">
+  <form [formGroup]="form" [class]="modalView?'relative  send-message short-msg-input ':'relative send-message'">
     <ion-item lines="none" mode="md" class="mt-8">
-      <ion-icon
-        *ngIf="recordDurDisplay"
-        class="big-mic"
-        name="mic-outline"
-        slot="start"
-      ></ion-icon>
+      <ion-icon *ngIf="recordDurDisplay" class="big-mic" name="mic-outline" slot="start"></ion-icon>
       <ion-input *ngIf="recordDurDisplay">{{ recordDurDisplay }} </ion-input>
 
-      <ion-input
-        *ngIf="!recordDurDisplay"
-        formControlName="message"
-        placeholder="Start Typing"
-      >
+      <ion-input *ngIf="!recordDurDisplay" formControlName="message" placeholder="Start Typing">
       </ion-input>
 
       <ion-icon #recordBtn name="mic-outline" slot="end"></ion-icon>
-      <ion-icon
-        (click)="attachFile.click()"
-        name="camera-outline"
-        slot="end"
-      ></ion-icon>
+      <ion-icon (click)="attachFile.click()" name="camera-outline" slot="end"></ion-icon>
     </ion-item>
 
     <div (click)="sendMsg()" class="send-icon">

@@ -1,0 +1,28 @@
+<ion-icon class="left-back-icon" name="arrow-back-outline"></ion-icon>
+
+<ion-content>
+  <video id="recieverVideo" (click)="toggleVideo?toggleView():''" [class]="toggleVideo?'smallVideo':'largeVideo'"
+    autoplay muted playsinline></video>
+  <video id="senderVideo" (click)="toggleVideo?'':toggleView()" [class]="toggleVideo?'largeVideo':'smallVideo'" autoplay
+    muted playsinline></video>
+
+  <!-- <video *ngIf="members.length==2"
+    src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" id="recieverVideo"
+    (click)="toggleVideo?toggleView():''" [class]="toggleVideo?'smallVideo':'largeVideo'" autoplay muted
+    playsinline></video>
+  <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" id="senderVideo"
+    (click)="toggleVideo?'':toggleView()" [class]="toggleVideo?'largeVideo':'smallVideo'" autoplay muted
+    playsinline></video> -->
+
+  <ion-row *ngIf="members.length==2" class="duration">{{recordDurDisplay}}</ion-row>
+  <ion-row class="icon-menu">
+    <ion-icon (click)="toggleVideoCam()" *ngIf="videoCam" class="m-10" name="videocam-outline"></ion-icon>
+    <ion-icon (click)="toggleVideoCam()" *ngIf="!videoCam" class="redIcon m-10" name="videocam-off-outline"></ion-icon>
+    <ion-icon (click)="toggleMic()" *ngIf="mic" class="m-10" name="mic-outline"></ion-icon>
+    <ion-icon (click)="toggleMic()" *ngIf="!mic" class="redIcon m-10" name="mic-off-outline"></ion-icon>
+    <ion-icon (click)="endCall()" class="m-10 end-call" name="call-outline"></ion-icon>
+    <ion-icon (click)="facingMode()" class="m-10" name="camera-reverse-outline"></ion-icon>
+    <ion-icon (click)="openChat()" class="m-10" name="chatbox-ellipses-outline"></ion-icon>
+  </ion-row>
+
+</ion-content>
